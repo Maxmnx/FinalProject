@@ -1,0 +1,26 @@
+<div class="container w-75">
+    <table class="table table-striped rounded-top" >
+        <thead class="bg-dark text-white rounded-top">
+            <th class="p-2">Name</th>
+            <th class="p-2">Size</th>
+            <th class="p-2">Type</th>
+            <th class="p-2">Access level</th>
+            <th class="p-2">Date</th>
+            <th class="p-2"></th>
+            <th class="p-2"></th>
+            <th class="p-2"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let file of filesList$|async">
+                <td>{{file.name}}</td>
+                <td>{{file.size}}</td>
+                <td>{{file.fileTypeExtension}}</td>
+                <td>{{accessOptions.at(file.accessLevel)}}</td>
+                <td>{{file.creationDate | date : 'yyyy-MM-dd'}}</td>
+                <td><button (click)="onDownload(file.id, file.name)">Download</button></td>
+                <td><button (click)="onUpdate(file)">Update</button></td>
+                <td><button (click)="onDelete(file.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

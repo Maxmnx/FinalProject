@@ -1,0 +1,23 @@
+
+<div class="container w-75" style="margin: auto;">
+    <table class="table table-striped rounded-top" >
+        <thead class="bg-dark text-white rounded-top">
+            <th class="p-2">Name</th>
+            <th class="p-2">Size</th>
+            <th class="p-2">Type</th>
+            <th class="p-2">Creator</th>
+            <th class="p-2">Date</th>
+            <th class="p-2"></th>
+        </thead>
+        <tbody>
+            <tr>
+            <td>{{file.name}}</td>
+            <td>{{file.size}}</td>
+            <td>{{file.fileTypeExtension}}</td>
+            <td>{{file.creatorUserName}}</td>
+            <td>{{file.creationDate}}</td>
+            <td><button (click)="onDownload()">Download</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

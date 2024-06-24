@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white p-2">MyStorage</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" routerLink="/files/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/files/search">Search for files</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/files/add">Add file</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/files/my-files">My files</a>
+        </li>
+        <!-- <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" *ngIf="role=='Admin'">Users</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/files/file-types" *ngIf="role=='Admin'">File types</a>
+        </li>
+      </ul>
+    </div>
+    <button class="bg-dark border-0 text-white b-0 p-3" (click)="onLogout()">Logout</button>
+  </nav>
+  <router-outlet></router-outlet>

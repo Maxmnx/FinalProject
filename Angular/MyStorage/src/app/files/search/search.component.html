@@ -1,0 +1,63 @@
+<div class="container w-75">
+    <form #form='ngForm' class="m-4 t" autocomplete="off" (submit)="onFilter()">
+        <div class="form-row row">
+            <div class="form-group col">
+                <label>Start date</label>
+                <input type="date" class="form-control" #fileName="ngModel" name="StartDate" [(ngModel)]="filterModel.StartDate">
+            </div>
+            <div class="form-group col ">
+                <label>End date</label>
+                <input type="date" class="form-control" #Password="ngModel" name="EndDate" [(ngModel)]="filterModel.EndDate">
+            </div>
+        </div>
+        <div class="form-row row">
+          <div class="form-group col">
+            <label>Minimum size</label>
+            <input type="number" class="form-control" #Password="ngModel" name="MinSize" [(ngModel)]="filterModel.MinSize">
+          </div>
+          <div class="form-group col">
+            <label>Maximum size</label>
+            <input type="number" class="form-control" #Password="ngModel" name="MaxSize" [(ngModel)]="filterModel.MaxSize">
+          </div>
+        </div>
+        <div class="form-row row">
+            <div class="form-group col">
+            <label>File type</label>
+            <input type="text" class="form-control" #Password="ngModel" name="FileType" [(ngModel)]="filterModel.FileType">
+          </div>
+          <div class="form-group col">
+            <label>Creator username</label>
+            <input type="text" class="form-control" #Password="ngModel" name="CreatorUserName" [(ngModel)]="filterModel.CreatorUserName">
+          </div>
+        </div>
+        <div class="form-row col">
+          <div class="form-group p-3">
+            <button type="submit" class="btn btn-lg btn-block">Filter</button>
+          </div>
+        </div>
+      </form>
+
+    <table class="table table-striped rounded-top" >
+        <thead class="bg-dark text-white rounded-top">
+            <th class="p-2">Name</th>
+            <th class="p-2">Size</th>
+            <th class="p-2">Type</th>
+            <th class="p-2">Creator</th>
+            <th class="p-2">Date</th>
+            <th class="p-2"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let file of filesList$|async">
+                <td>{{file.name}}</td>
+                <td>{{file.size}}</td>
+                <td>{{file.fileTypeExtension}}</td>
+                <td>{{file.creatorUserName}}</td>
+                <td>{{file.creationDate | date : 'yyyy-MM-dd'}}</td>
+                <td><button (click)="onDownload(file.id, file.name)">Download</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <div class="text-center"*ngIf="filesList$.pipe.length==0">
+      <h4>No files were found</h4>
+    </div> -->
+</div>

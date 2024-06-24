@@ -1,0 +1,27 @@
+<div class="container w-50" style="margin: auto;">
+  <form #form='ngForm' class="m-4 t"  style="margin:auto" autocomplete="off" (submit)="onSubmit(file.files)">
+    <div class="form-group">
+      <label>File  name</label>
+      <input type="text" class="form-control" #fileName="ngModel" name="FileName" [(ngModel)]="fileModel.FileName" required>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-control" #description="ngModel" name="Description" [(ngModel)]="fileModel.Description">
+    </div>
+    <div class="form-group">
+        <label>Access level</label>
+        <select class="form-control bg-dark text-white" [(ngModel)]="fileModel.AccessLevel" #accessLevel="ngModel" name="AccessLevel" required>
+            <option class="text-white" *ngFor="let ao of accessOptions" [ngValue]="accessOptions.indexOf(ao)">{{ao}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label>File</label>
+      <input type="file" class="form-control" #file required>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-10 offset-md-5 p-3">
+        <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Add File</button>
+      </div>
+    </div>
+  </form>
+</div>
